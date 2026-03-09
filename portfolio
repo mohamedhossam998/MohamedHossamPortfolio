@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Hossam Al-Din | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #020617;
+            --card-bg: #0f172a;
+            --primary-blue: #0ea5e9;
+            --primary-purple: #8b5cf6;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent-gradient: linear-gradient(90deg, #0ea5e9, #8b5cf6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Particles Background Simulation */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.05), transparent 80%);
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(2, 6, 23, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 10%;
+            margin-top: 20px;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content span {
+            color: var(--primary-blue);
+            font-family: monospace;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin: 0.5rem 0;
+            line-height: 1.1;
+        }
+
+        .hero-content h1 span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: inherit;
+        }
+
+        .hero-content h2 {
+            color: var(--text-dim);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            color: var(--text-dim);
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 1px solid #334155;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-purple);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image .img-container {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-blue);
+            box-shadow: 0 0 50px rgba(14, 165, 233, 0.3);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sections General */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+        }
+
+        .section-title span {
+            color: var(--primary-blue);
+        }
+
+        /* Stats/Intro Cards */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #1e293b;
+        }
+
+        .intro-card i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid #1e293b;
+        }
+
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+        }
+
+        /* Journey (Timeline) */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            position: relative;
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        .timeline-date {
+            color: var(--primary-blue);
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            background: #1e293b;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: var(--text-dim);
+        }
+
+        /* Contact */
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .contact-info { flex: 1; }
+        .contact-form { flex: 1.5; }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--primary-blue);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--card-bg);
+            border: 1px solid #1e293b;
+            border-radius: 8px;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .btn-send {
+            width: 100%;
+            background: var(--primary-blue);
+            border: none;
+            padding: 1rem;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; height: auto; padding-top: 100px; }
+            .hero-content { max-width: 100%; }
+            .hero-image .img-container { width: 250px; height: 250px; margin-bottom: 2rem; }
+            .contact-container { flex-direction: column; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MH</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span>// Hello, I'm</span>
+            <h1>Mohamed<br><span>Hossam Al-Din</span></h1>
+            <h2>AI & Data Analysis Specialist</h2>
+            <p>Transforming raw data into strategic insights that drive business growth and smarter decisions.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-down"></i></a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="img-container">
+                <img src="https://i.ibb.co/35h5Qgtd/7zm9je6sa5rgc0cwnp0ahnpvq8-result-0-1.jpg" alt="Mohamed Hossam">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-title">
+            <h2>Turning Data Into <span>Decisions</span></h2>
+            <p style="color: var(--text-dim); max-width: 800px; margin-top: 1rem;">I help businesses unlock the full value of their data by turning raw numbers into clear, actionable insights. Through powerful dashboards and data-driven solutions, I enable smarter decisions.</p>
+        </div>
+        <div class="intro-grid">
+            <div class="intro-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI & Machine Learning</h3>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Intelligent solutions</p>
+            </div>
+            <div class="intro-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Data Analytics</h3>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Actionable insights</p>
+            </div>
+            <div class="intro-card">
+                <i class="fas fa-chart-line"></i>
+                <h3>Business Growth</h3>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Measurable impact</p>
+            </div>
+            <div class="intro-card">
+                <i class="fas fa-bullseye"></i>
+                <h3>Strategic Decisions</h3>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Data-driven clarity</p>
+            </div>
+        </div>
+
+        <div class="section-title" id="skills">
+            <span>// Skills & Expertise</span>
+            <h2>Technical <span>Arsenal</span></h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>AI & Machine Learning</h3><br>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Python</span><span>85%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Machine Learning</span><span>75%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Agentic AI</span><span>70%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Data Analysis & Visualization</h3><br>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Power BI</span><span>80%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Excel (Advanced)</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Data Storytelling</span><span>80%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3><br>
+                <div class="skill-item">
+                    <div class="skill-info"><span>SQL</span><span>85%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Financial Analysis</span><span>85%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Procurement</span><span>75%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-title">
+            <span>// Experience & Education</span>
+            <h2>My <span>Journey</span></h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">Dec 2025 - Present</span>
+                <h3>Applied AI & Data Analytics Trainee</h3>
+                <p style="color: var(--primary-blue);">Digilians Scholarship – MCIT</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-dim); font-size: 0.9rem;">
+                    <li>Completing a 9-month intensive training program.</li>
+                    <li>Hands-on training in Python, SQL, and Agentic AI.</li>
+                </ul>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-date">Jan 2023 - Nov 2025</span>
+                <h3>Accountant & Procurement Officer</h3>
+                <p style="color: var(--primary-blue);">First Egyptian Supplies Company</p>
+                <ul style="margin-left: 1.5rem; color: var(--text-dim); font-size: 0.9rem;">
+                    <li>Managed accounting records and financial transactions.</li>
+                    <li>Handled procurement and supplier coordination.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-title">
+            <span>// Portfolio</span>
+            <h2>Featured <span>Projects</span></h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img"><img src="https://via.placeholder.com/400x200?text=Sales+Dashboard" alt="Project"></div>
+                <div class="project-info">
+                    <h3>Sales Performance Dashboard</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">Interactive Power BI dashboard for analyzing sales trends.</p>
+                    <div class="tags">
+                        <span class="tag">Power BI</span><span class="tag">Data Modeling</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="https://via.placeholder.com/400x200?text=AI+Insights" alt="Project"></div>
+                <div class="project-info">
+                    <h3>AI-Powered Data Insights</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">Machine learning models to predict business outcomes.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span><span class="tag">ML</span><span class="tag">Agentic AI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"><img src="https://via.placeholder.com/400x200?text=Database+System" alt="Project"></div>
+                <div class="project-info">
+                    <h3>Database Management System</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-dim);">SQL database schemas for efficient storage and retrieval.</p>
+                    <div class="tags">
+                        <span class="tag">SQL</span><span class="tag">ETL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <span>// Get In Touch</span>
+            <h2>Let's <span>Connect</span></h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <p style="font-size: 0.8rem; color: var(--text-dim);">Email</p>
+                        <p>mohamed50hossam@yahoo.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <p style="font-size: 0.8rem; color: var(--text-dim);">Phone</p>
+                        <p>+2 01025362827</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <p style="font-size: 0.8rem; color: var(--text-dim);">Location</p>
+                        <p>Cairo, Egypt</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Name">
+                    <input type="email" placeholder="Email">
+                    <textarea rows="5" placeholder="Message"></textarea>
+                    <button type="submit" class="btn-send">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-dim); border-top: 1px solid #1e293b;">
+        <p>&copy; 2026 Mohamed Hossam Al-Din. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
